@@ -58,7 +58,7 @@ body {
     max-width: 1200px;
     gap: 2rem;
     margin: 0 auto;
-    overflow-x: auto;
+    overflow-x: hidden;
 }
 
 /* ---- CALCULATOR ---- */
