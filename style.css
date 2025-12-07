@@ -161,12 +161,14 @@ body {
     padding-left: 1rem;   /* prevent left column from cutting off on mobile */
 }
 
+/* WORKOUT TABLE */
 #wo_table {
     border-collapse: collapse;
     table-layout: auto;
     min-width: 600px;     /* ensures horizontal scroll if content is wide */
     width: auto;          /* natural width based on content */
     margin: 0 auto;       /* center table on desktop */
+    white-space: nowrap;  /* prevent text wrapping */
 }
 
 #wo_table td,
@@ -175,7 +177,6 @@ body {
     text-align: center;
     font-size: clamp(1rem, 2vw, 2rem);
     padding: 0.5rem;
-    white-space: nowrap;  /* prevents text wrapping */
 }
 
 .pace,
@@ -217,14 +218,13 @@ body {
     }
 
     #wo_table_wrapper {
-        min-width: 100%;
-        padding-left: 0.5rem; /* prevent left column from cutting off */
+        padding-left: 0;     /* flush left so column is visible */
     }
 
     #wo_table {
-        min-width: 600px; /* triggers horizontal scroll if table is too wide */
+        min-width: 600px;    /* triggers horizontal scroll if table is too wide */
         font-size: 1.2rem;
-        margin: 0;         /* scroll starts at leftmost column */
+        margin: 0;           /* scroll starts at leftmost column */
     }
 }
 
