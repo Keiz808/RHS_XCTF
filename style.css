@@ -223,9 +223,9 @@ body {
 
     /* Workout table scrollable */
     #wo_table {
-        min-width: 600px;    /* triggers horizontal scroll if table is too wide */
         font-size: 1.2rem;
         margin: 0;           /* scroll starts at leftmost column */
+        white-space: nowrap;
     }
 }
 
@@ -242,8 +242,12 @@ body {
     }
 
     #wo_table {
-        margin: 0;
-        min-width: 600px;
+        min-width: 0;         /* allow table to shrink */
+        max-width: 100%;      /* fits screen width */
+        width: auto;          /* natural width based on content */
+        font-size: 1rem;      /* smaller font for mobile */
+        white-space: nowrap;  /* keep table in one line */
+        margin: 0;            /* flush left for scroll */
     }
 }
 
