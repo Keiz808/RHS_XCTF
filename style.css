@@ -148,22 +148,24 @@ body {
 /* =================== WORKOUT CHART =================== */
 #workout_chart {
     display: flex;
-    justify-content: center;
+    justify-content: center; /* center wrapper on desktop */
     width: 100%;
 }
 
+/* WRAPPER FOR SCROLLING */
 #wo_table_wrapper {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    width: 100%;               /* fills container */
+    width: 100%;          /* wrapper fills container */
+    padding-left: 1rem;   /* prevent left column from cutting off */
 }
 
 #wo_table {
     border-collapse: collapse;
-    table-layout: auto;        /* columns expand to fit content */
-    min-width: 600px;          /* triggers scroll if screen is smaller */
-    margin: 0 auto;            /* center table */
-    width: auto;               /* natural width based on content */
+    table-layout: auto;
+    min-width: 600px;     /* ensures horizontal scroll if content is wide */
+    width: auto;          /* natural width based on content */
+    margin: 0;            /* no centering inside wrapper, scroll starts at left */
 }
 
 #wo_table td,
@@ -172,7 +174,7 @@ body {
     text-align: center;
     font-size: clamp(1rem, 2vw, 2rem);
     padding: 0.5rem;
-    white-space: nowrap;       /* prevents wrapping, enables horizontal scroll */
+    white-space: nowrap;  /* prevents text wrapping */
 }
 
 .pace,
@@ -206,12 +208,14 @@ body {
     }
 
     #wo_table_wrapper {
-        min-width: 100%;       /* wrapper fills screen */
+        min-width: 100%;
+        padding-left: 0.5rem; /* prevent left column from cutting off */
     }
 
     #wo_table {
-        min-width: 600px;      /* triggers scroll if table too wide */
+        min-width: 600px; /* triggers horizontal scroll if table is too wide */
         font-size: 1.2rem;
+        margin: 0;         /* scroll starts at leftmost column */
     }
 }
 
