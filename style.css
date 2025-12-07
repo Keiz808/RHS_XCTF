@@ -1,0 +1,132 @@
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/**************************** HEAD *******************************/
+#head {
+    display: flex;
+    height: 14rem;
+    width: 100vw;
+    font-size: 3rem;
+    text-align: start;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#head_text {
+    transform: translateY(12.5%);
+}
+
+#logo {
+    width: 8rem;
+    height: 8rem;
+}
+
+/************************* Body_parent ***************************/
+#body_parent{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.titles{
+    font-size: 1.5rem;
+}
+
+#top{
+    width: 20rem;
+}
+
+#calculator_parent, #conversion_parent{
+    display:block;
+    width: 100%;
+}
+/**************************** Calc *******************************/
+
+#calculator_parent{
+    height: 14rem;
+    width: 14rem;
+}
+
+#time_parent{
+    display: flex;
+}
+#min{
+    width:2rem;
+    margin-left: 0.5rem;
+}
+
+#sec{
+    width:2rem;
+    margin-left: 0.5rem;
+}
+
+#calculate{
+    margin-top: 0.5rem;
+}
+
+/**************************** Conv *******************************/
+
+#conversion_parent{
+    margin-left: 0.5rem;
+    height: 15rem;
+    width: 16rem;
+    clear:both;
+    margin-top: 20px
+}
+
+
+#dist_table{
+    width: 15rem;
+    border-collapse: collapse;
+}
+
+.c_event{
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    width:3rem;
+}
+.c_time{
+    border-style: solid;
+    border-width: 2px 2px 2px 2px;
+    text-align: end;
+}
+
+/**************************** wotb *******************************/
+
+#wo_table{
+    width: 30rem;
+    border-collapse: collapse;
+    transform:translateX(-0.45rem)
+}
+
+#t_t{
+    border-style: solid;
+    border-width: 2px;
+}
+.pace{
+    width:5rem;
+    border-style: solid;
+    border-width: 2px;
+} /*top format*/    
+
+.w_type{
+    font-size: 2rem;
+    border-style: solid;
+    border-width: 2px;
+}
+.w_pace{
+    text-align: end;
+    height: 3rem;
+    width:5rem;
+    border-style: solid;
+    border-width: 2px
+}
+
+
+
