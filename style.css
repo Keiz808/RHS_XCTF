@@ -75,7 +75,7 @@ body {
 #event_parent {
     width: 100%;
     margin-bottom: 1rem;
-    transform: translateX(14.5%)
+    transform: translateX(14.25%)
 }
 
 #eventSelector {
@@ -171,7 +171,7 @@ body {
 .grid_cell {
     border: 2px solid black;
     text-align: center;
-    font-size: clamp(1rem, 2vw, 2rem);
+    font-size: clamp(1rem, 2vw, 1.70rem);
     padding: 0.5rem;
     white-space: nowrap;
 }
@@ -261,4 +261,49 @@ input[type=number]::-webkit-outer-spin-button,
 input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+
+/* =================== IMAGE =================== */
+#img_div {
+    width: 100%;
+    max-width: 16500px; /* max image size on large screens */
+    min-width: 800px;  /* don't shrink below this width */
+    margin: 0 auto;
+    overflow-x: auto;  /* horizontal scroll when needed */
+    padding: 1rem 0;   /* optional padding */
+}
+
+#img_div img {
+    width: 100%;        /* fills the div */
+    height: auto;
+    display: block;
+    min-width: 800px;   /* image won't shrink below this width */
+    max-width: 16500px; /* max image size on large screens */
+
+}
+
+/* Mobile portrait */
+@media (max-width: 600px) and (orientation: portrait) {
+    #img_div {
+        min-width: 0;   /* allow it to shrink for mobile */
+    }
+
+    #img_div img {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 900px) and (orientation: landscape) {
+    #img_div {
+        min-width: 0;
+    }
+
+    #img_div img {
+        width: 100%;
+        min-width: 0;
+        height: auto;
+    }
 }
