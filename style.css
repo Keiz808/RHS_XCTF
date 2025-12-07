@@ -154,16 +154,16 @@ body {
 
 #wo_grid_wrapper {
     display: grid;
-    grid-template-columns: 220px repeat(4, minmax(140px, 1fr)); /* wider columns for desktop */
+    grid-template-columns: 220px repeat(4, minmax(140px, 1fr));
     gap: 0;
     width: 100%;
-    max-width: 1600px; /* ↑ longer table on large screens */
+    max-width: 1400px;
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
 }
 
 .grid_row {
-    display: contents; /* cells participate in parent grid */
+    display: contents;
 }
 
 .grid_cell {
@@ -171,7 +171,11 @@ body {
     text-align: center;
     font-size: clamp(1rem, 2vw, 2rem);
     padding: 0.5rem;
-    white-space: nowrap; /* prevent wrapping of long times */
+
+    white-space: normal;
+    /* allow text wrapping */
+    overflow-wrap: break-word;
+    /* break long text if necessary */
 }
 
 .header .grid_cell {
@@ -195,57 +199,47 @@ body {
 
 /* =================== RESPONSIVE =================== */
 
-/* Small mobile */
-@media (max-width: 600px) {
-    #top {
-        flex-direction: column;
-        gap: 2rem;
-        align-items: center;
-    }
+/* Small mobile portrait */
+@media (max-width: 600px) and (orientation: portrait) {
 
-    #calculator_parent,
-    #conversion_parent {
+    /* Keep table-like format instead of stacked cards */
+    #wo_grid_wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        /* all columns side by side */
+        gap: 0;
         width: 100%;
-        max-width: 350px;
-        margin: 0 auto;
+        max-width: 600px;
+        /* fits portrait mobile */
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
-    #time_parent {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.2rem;
+    .grid_cell {
+        font-size: 1rem;
+        padding: 0.4rem;
+        white-space: nowrap;
+    }
+
+    .header {
+        display: contents;
+        /* show header row */
     }
 }
 
-/* 🔥 MOBILE PORTRAIT CARDS */
-@media (max-width: 600px) and (orientation: portrait) {
+/* Mobile landscape */
+@media (max-width: 900px) and (orientation: landscape) {
 
-    /* Hide desktop header row */
-    .header {
-        display: none;
+    #wo_grid_wrapper {
+        max-width: 900px;
+        /* reduce max width for landscape */
+        grid-template-columns: 180px repeat(4, minmax(100px, 1fr));
+        /* slightly narrower columns */
     }
 
-    /* Each workout becomes a stacked card */
-    .workout {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        border: 2px solid black;
-        margin-bottom: 1rem;
-        padding: 0.25rem 0.5rem;
-        border-radius: 8px;
-        background-color: #f9f9f9;
-    }
-
-    .workout .grid_cell {
-        border: none;
-        padding: 0.25rem 0.5rem;
+    .grid_cell {
         font-size: 1rem;
-        text-align: left;
-        white-space: normal; /* allow wrapping in cards if needed */
-    }
-
-    .workout .grid_cell:nth-child(odd) {
-        font-weight: bold;
+        padding: 0.4rem;
     }
 }
 
@@ -258,14 +252,9 @@ body {
 
 /* Large desktop */
 @media (min-width: 901px) {
-    #body_parent {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-
-    #time_parent {
-        flex-wrap: nowrap;
+    #wo_grid_wrapper {
+        grid-template-columns: 220px repeat(4, minmax(140px, 1fr));
+        max-width: 1400px;
     }
 }
 
