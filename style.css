@@ -9,6 +9,250 @@
 
 body {
     font-family: Arial, sans-serif;
+    scroll-behavior: smooth; /* optional smooth scroll */
+}
+
+/* =================== HEAD =================== */
+#head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+#head_text {
+    font-size: clamp(3rem, 8vw, 8rem);
+    margin-bottom: 0.5rem;
+}
+
+#cd {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* =================== BODY PARENT =================== */
+#body_parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 1rem;
+    gap: 3rem;
+}
+
+.titles {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* =================== TOP SECTION: CALCULATOR + CONVERSION =================== */
+#top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1200px;
+    gap: 2rem;
+    margin: 0 auto;
+    overflow-x: auto; /* allow horizontal scroll if needed */
+}
+
+/* ---- CALCULATOR ---- */
+#calculator_parent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 350px;
+    min-width: 300px; /* prevent shrinking too much */
+    width: 100%;
+}
+
+#event_parent {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+#eventSelector {
+    height: 2.2rem;
+    font-size: 1rem;
+}
+
+#time_parent {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: nowrap;
+    margin-bottom: 1rem;
+}
+
+.time_inputs {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.time_inputs input {
+    width: 3rem;
+    height: 2rem;
+    text-align: center;
+    font-size: 1rem;
+}
+
+#calculate {
+    width: 80%;
+    max-width: 200px;
+    height: 3rem;
+    font-size: 1.5rem;
+    margin-top: 0.5rem;
+    cursor: pointer;
+}
+
+/* ---- CONVERSION CHART ---- */
+#conversion_parent {
+    max-width: 350px;
+    min-width: 300px; /* prevent shrinking too much */
+    width: 100%;
+    text-align: center;
+}
+
+#dist_table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+    min-width: 300px; /* allow horizontal scroll on small screens */
+}
+
+#dist_table td {
+    border: 2px solid black;
+    padding: 0.5rem;
+    word-break: break-word;
+}
+
+.c_event {
+    width: 40%;
+    text-align: left;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+.c_time {
+    text-align: right;
+    font-size: clamp(1.2rem, 2.5vw, 2rem);
+}
+
+/* =================== WORKOUT CHART =================== */
+#workout_chart {
+    display: flex;
+    justify-content: center; /* center the wrapper */
+    width: 100%;
+}
+
+#wo_table_wrapper {
+    overflow-x: auto;          /* enable horizontal scroll */
+    -webkit-overflow-scrolling: touch;
+    width: 100%;               /* fill container to prevent offset */
+}
+
+#wo_table {
+    border-collapse: collapse;
+    table-layout: auto;        /* columns expand to fit content */
+    min-width: 600px;          /* triggers horizontal scroll on small screens */
+    margin: 0 auto;            /* center table */
+    width: auto;               /* natural width based on content */
+}
+
+#wo_table td,
+#wo_table th {
+    border: 2px solid black;
+    text-align: center;
+    font-size: clamp(1rem, 2vw, 2rem);
+    padding: 0.5rem;
+    white-space: nowrap;       /* prevent text wrapping */
+}
+
+.pace,
+.w_type,
+.w_pace {
+    text-align: center;
+}
+
+/* =================== BOT =================== */
+#bot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 2rem auto;
+}
+
+/* =================== RESPONSIVE =================== */
+
+/* Small mobile */
+@media (max-width: 600px) {
+    #top {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    #time_parent {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.2rem;
+    }
+
+    #wo_table {
+        font-size: 1.2rem;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 601px) and (max-width: 900px) {
+    #top {
+        gap: 2rem;
+    }
+}
+
+/* Large desktop */
+@media (min-width: 901px) {
+    #body_parent {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #time_parent {
+        flex-wrap: nowrap;
+    }
+
+    #wo_table {
+        max-width: 1000px;
+    }
+}
+
+/* Remove arrows from number inputs */
+
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/* =================== GLOBAL STYLES =================== */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
     overflow-x: hidden;
 }
 
@@ -230,4 +474,5 @@ input[type=number]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
 
