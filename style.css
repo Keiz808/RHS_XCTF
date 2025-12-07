@@ -15,75 +15,69 @@ body {
 
     /* ... existing rules ... */
     #body_parent {
-        /* Force horizontal alignment to center for stacked items */
+        /* Align-items centers items along the cross-axis, which is the horizontal center when flex-direction is row (desktop) or column (mobile, though not explicitly set) */
         align-items: center;
-        /* Ensure there's no inherited margin causing shifts */
         padding: 0;
         margin: 0;
     }
 
+    /* Center the individual stacked components */
     #calculator_parent,
     #conversion_parent {
-        /* Keep widths high for sizing */
-        width: 98%;
-        max-width: none;
-        flex: 1 1 98%;
-
-        /* CRITICAL FIX: Use margin: auto to center the block element */
+        /* This is the key that works when the parent margins are cleared: */
         display: block;
-        /* Make sure they behave like blocks */
-        margin-left: auto;
-        /* THIS will center the block */
-        margin-right: auto;
-        /* THIS will center the block */
+        width: 98%;
+        margin: 1rem auto;
+        /* COMBINES margin-top/bottom and margin-left/right: auto for centering */
 
-        /* Reintroduce vertical spacing */
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        /* Clear all old flex rules that are now redundant: */
+        max-width: none;
+        flex: none;
 
         padding: 0 10px;
     }
 
+    /* Ensure internal text is aligned for readability */
+    #calculator_parent,
+    #conversion_parent {
+        text-align: left;
+        /* Keep content left-aligned within the centered box */
+    }
+
     .c_event {
-        /* NEW STYLE: Reduce the width dedicated to the event name */
-        width: 5rem;
-        /* Changed from default width to a smaller fixed size */
-        font-size: 2rem;
-        /* Ensure text does not wrap */
         white-space: nowrap;
-    }
-
-    .c_time {
-        /* NEW STYLE: Set width to auto to ensure it consumes all remaining space */
-        width: auto;
+        border-style: solid;
+        border-width: 2px 2px 2px 2px;
+        width: rem;
         font-size: 2rem;
+        padding-left: 10px;
     }
 
-    #wo_table {
-        width: 98%;
-        /* <-- CHANGED from 95% */
-        transform: none;
-        /* Ensures the table is truly centered by making it responsive to its parent */
-        margin-left: auto;
-        margin-right: auto;
-    }
 
-    #top {
-        width: 100%;
+.c_time {
+    /* NEW STYLE: Set width to auto to ensure it consumes all remaining space */
+    width: auto;
+    font-size: 2rem;
+}
 
-        /* CRITICAL CHANGE: Switch to block layout when stacking */
-        display: block;
+#wo_table {
+    width: 98%;
+    /* <-- CHANGED from 95% */
+    transform: none;
+    /* Ensures the table is truly centered by making it responsive to its parent */
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        margin-left: 0;
-        margin-right: 0;
+#top {
+    display: block;
+    /* Ensures block-level flow */
+    width: 100%;
+    margin: 0 auto;
+    /* Ensures #top itself is centered (though it is 100% wide) */
+}
 
-        /* Remove justify-content: center; since it's no longer flex */
-        /* Remove padding/margins to let #body_parent handle outer spacing */
-        padding: 0;
-        margin: 0;
-    }
-
-    /* ... remaining rules ... */
+/* ... remaining rules ... */
 }
 
 /**************************** HEAD *******************************/
@@ -116,9 +110,10 @@ body {
 /************************* Body_parent ***************************/
 
 #body_parent {
-    display: flex; /* Keep this */
-    flex-wrap: wrap; 
-    justify-content: center; 
+    display: flex;
+    /* Keep this */
+    flex-wrap: wrap;
+    justify-content: center;
     /* ... */
 }
 
@@ -206,15 +201,14 @@ body {
 /**************************** Conv *******************************/
 
 #conversion_parent {
-    margin-left: 1rem;
-    height: 15rem;
-    flex: 1 1 280px;
-    /* Use a flex basis to control minimum size, then let it grow */
-    max-width: 350px;
-    /* Keep it from getting too big on desktop */
-    clear: both;
-    margin-top: 1rem;
-    margin-left: 1.5rem;
+margin-left: 2rem; 
+height: 15rem;
+flex: 1 1 280px;
+/* Use a flex basis to control minimum size, then let it grow */
+max-width: 350px;
+/* Keep it from getting too big on desktop */
+clear: both;
+margin-top: 1rem;
 }
 
 #dist_table {
@@ -294,4 +288,4 @@ body {
 
 }
 
-/*changed 5*/
+/*changed 6*/
