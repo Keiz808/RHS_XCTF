@@ -12,73 +12,43 @@ body {
 }
 
 @media (max-width: 600px) {
-
-    /* 1. Header Text Adjustment (making it readable, not giant) */
-    #head_text {
-        font-size: 3rem;
-    }
-
-    #cd {
-        font-size: 1.5rem;
-    }
-
-    /* 2. Force Calculator & Conversion to Stack and be LARGE */
-    #calculator_parent,
-    #conversion_parent {
-        /* Force full width on small screens to make them stack and utilize space */
-        width: 90%;
-        max-width: none;
-        /* Crucial: removes desktop restriction */
-        flex: 1 1 90%;
-        /* Forces the flex item to take up 90% when wrapping */
-        margin-left: auto;
-        margin-right: auto;
-        /* Remove the extra left margin on the conversion parent when stacking */
-        margin-left: auto;
-    }
-
-    /* 3. Make internal elements fill the upscaled parent */
-    #time_parent {
-        width: 100%;
-        /* Important: fills the new 90% wide parent */
-        justify-content: center;
-    }
+    /* ... existing rules ... */
 
     /* 4. Upscale Calculator Button & Inputs */
     #calculate {
         width: 80%;
-        /* Make the button wider */
         height: 4em;
-        /* Make the button taller */
-        font-size: 1.5rem;
-        /* Ensure button text is readable */
+        font-size: 2rem;
+        /* <-- MATCHES workout table .w_type */
         display: block;
-        /* Make it block level to take up space */
         margin-left: auto;
         margin-right: auto;
         text-align: center;
-        /* Center the text */
+    }
+
+    /* NEW: Increase all standard text in the calculator area */
+    .txt,
+    #time_parent {
+        display: flex;
+        font-size: 2rem;
+        gap: 1rem;
+        /* <-- NEW: Adds 1rem spacing between elements */
     }
 
     /* 5. Conversion Table Sizing (to fit inside the upscaled parent) */
     #dist_table {
         width: 100%;
-        /* Important: forces the table to use all of the 90% parent width */
         max-width: 100%;
     }
 
-    /* 6. Workout Table (wotb) Sizing */
-    #wo_table {
-        width: 95%;
-        /* Use 95% of the screen */
-        transform: none;
+    /* NEW: Increase conversion table text */
+    .c_event,
+    .c_time {
+        font-size: 2rem;
+        /* <-- MATCHES workout table .w_type */
     }
 
-    /* 7. Workout Table text (keeping it readable) */
-    .w_type,
-    .w_pace {
-        font-size: 1.25rem;
-    }
+    /* ... remaining rules ... */
 }
 
 /**************************** HEAD *******************************/
@@ -128,34 +98,42 @@ body {
 
 #top {
     display: flex;
-    width: 50%;
+    /* CHANGE: Remove the restrictive 50% width and make it full width */
+    width: 100%;
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
-    transform: translateX(0.5)
+    /* CHANGE: Remove the invalid transform that might cause shifting */
+    transform: none;
+    transform: translateY(-3rem)
 }
 
 /**************************** Calc *******************************/
 
 #calculator_parent {
     height: 14rem;
+    max-width: 350px;
     margin-top: 1rem;
 }
 
-#time_parent {
-    display: flex;
-    width: 18rem;
-    font-size: 1.5rem;
+#time_parent span {
+    /* Ensures the min/sec labels are aligned with the inputs */
+    line-height: 1.5rem;
+    align-self: center;
+    font-size: 2rem;
+
 }
 
 #min {
     width: 2rem;
-    margin-left: 0.5rem;
+    transform: translateY(-4.9px)
 }
 
 #sec {
     width: 2rem;
     margin-left: 0.5rem;
+    transform: translateY(-4.9px)
+
 }
 
 #calculate {
@@ -164,7 +142,7 @@ body {
     width: 80%;
     /* Allow it to take up 80% of its parent container's width */
     max-width: 200px;
-    max-height:100px;
+    max-height: 100px;
     /* Crucial: Prevents it from getting bigger than, say, 200 pixels */
     text-align: center;
     /* Changed from 'start' to 'center' for better appearance */
@@ -176,7 +154,8 @@ body {
 }
 
 .txt {
-    font-size: 1.5rem;
+    font-size: 2rem;
+    /* <-- CHANGED from 1.5rem */
 }
 
 #eventSelector {
@@ -206,7 +185,8 @@ body {
 }
 
 #dist_table {
-    width: 20rem;
+    width: 30rem;
+    /* <-- CHANGED from 20rem */
     height: 20rem;
     border-collapse: collapse;
 }
@@ -215,14 +195,16 @@ body {
     border-style: solid;
     border-width: 2px 2px 2px 2px;
     width: 3rem;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    /* <-- CHANGED from 1.5rem */
 }
 
 .c_time {
     border-style: solid;
     border-width: 2px 2px 2px 2px;
     text-align: end;
-    font-size: 1.5rem;
+    font-size: 2rem;
+    /* <-- CHANGED from 1.5rem */
 }
 
 /**************************** wotb *******************************/
