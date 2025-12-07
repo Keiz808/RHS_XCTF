@@ -14,37 +14,39 @@ body {
 @media (max-width: 600px) {
     /* ... existing rules ... */
 
-    /* 2. Force Calculator & Conversion to Stack and be LARGE */
     #calculator_parent,
     #conversion_parent {
-        /* Pushing the width closer to the edges */
-        width: 90%;
-        /* <-- CHANGED from 90% */
+        width: 98%;
         max-width: none;
         flex: 1 1 98%;
-        /* <-- CHANGED from 90% */
+
+        /* CRITICAL FIX: margin: auto will center a block-level element */
         margin-left: auto;
         margin-right: auto;
 
-    padding-right:0px 10px 10px 0px; /* Adds 10px of space on the left and right */
+        /* Ensure the content inside the calculator/conversion parent is centered */
+        text-align: center;
+
+        /* Add a small vertical margin for spacing */
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
-    /* 5. Conversion Table Cell Sizing */
     .c_event {
         /* NEW STYLE: Reduce the width dedicated to the event name */
-        width: 5rem; /* Changed from default width to a smaller fixed size */
+        width: 5rem;
+        /* Changed from default width to a smaller fixed size */
         font-size: 2rem;
         /* Ensure text does not wrap */
-        white-space: nowrap; 
+        white-space: nowrap;
     }
-    
+
     .c_time {
         /* NEW STYLE: Set width to auto to ensure it consumes all remaining space */
-        width: auto; 
+        width: auto;
         font-size: 2rem;
     }
 
-    /* 6. Workout Table (wotb) Sizing */
     #wo_table {
         width: 98%;
         /* <-- CHANGED from 95% */
@@ -52,6 +54,13 @@ body {
         /* Ensures the table is truly centered by making it responsive to its parent */
         margin-left: auto;
         margin-right: auto;
+    }
+
+    #top {
+        margin-left: 0;
+        /* NEW: Remove the desktop negative margin shift */
+        justify-content: center;
+        /* Ensure contents are centered within #top */
     }
 
     /* ... remaining rules ... */
