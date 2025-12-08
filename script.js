@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //soft tempo
             let st_top = t_top + 30;
-            let st_bot = t_bot + 20;
+            let st_bot = t_bot + 30;
             document.getElementById("st").textContent = formatTime(st_bot) + "~" + formatTime(st_top)
             let st_top8 = ((st_top / 1609) * 800);
             let st_bot8 = ((st_bot / 1609) * 800);
@@ -285,7 +285,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //soft tempo
             let st_top = t_top + 30;
-            let st_bot = t_bot + 20;
+            let st_bot = t_bot + 30;
             document.getElementById("st").textContent = formatTime(st_bot) + "~" + formatTime(st_top)
             let st_top8 = ((st_top / 1609) * 800);
             let st_bot8 = ((st_bot / 1609) * 800);
@@ -433,7 +433,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //soft tempo
             let st_top = t_top + 30;
-            let st_bot = t_bot + 20;
+            let st_bot = t_bot + 30;
             document.getElementById("st").textContent = formatTime(st_bot) + "~" + formatTime(st_top)
             let st_top8 = ((st_top / 1609) * 800);
             let st_bot8 = ((st_bot / 1609) * 800);
@@ -582,7 +582,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             //soft tempo
             let st_top = t_top + 30;
-            let st_bot = t_bot + 20;
+            let st_bot = t_bot + 30;
             document.getElementById("st").textContent = formatTime(st_bot) + "~" + formatTime(st_top)
             let st_top8 = ((st_top / 1609) * 800);
             let st_bot8 = ((st_bot / 1609) * 800);
